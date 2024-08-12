@@ -1,91 +1,86 @@
 body {
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f0f0f0;
     margin: 0;
+    background: radial-gradient(circle, #000428, #004e92); /* Galaksi etkisi */
+    overflow: hidden; /* Taşmayı önle */
 }
 
-.calculator {
-    background-color: #c12424;
+.quiz-container {
+    background-color: rgba(255, 255, 255, 0.8); /* Yarı saydam beyaz arka plan */
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     text-align: center;
+    position: relative; /* Overlay için */
+    z-index: 1; /* Overlay'in altında kalmaması için */
 }
 
-#display {
-    width: 100%;
-    height: 40px;
+.quiz-container h1 {
+    font-size: 1.5rem;
     margin-bottom: 20px;
-    text-align: right;
-    padding: 10px;
-    font-size: 24px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    animation: fadeIn 0.5s;
 }
 
-.buttons {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
+.options {
+    position: relative; /* Seçeneklerin üst üste gelmesini sağlar */
+    width: 300px;
+    height: 200px;
+    margin: 0 auto;
 }
 
-button {
-    width: 100%;
-    padding: 20px;
-    font-size: 18px;
-    border: none;
+.options button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: 2px solid transparent;
     border-radius: 5px;
     cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.2s, transform 0.2s;
+    background-color: neon; /* Neon arka plan rengi */
+    color: black; /* Buton üzerindeki yazı rengi siyah */
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
 }
 
-button:nth-child(1) { background-color: #ffcccc; }
-button:nth-child(2) { background-color: #ffcc99; }
-button:nth-child(3) { background-color: #ffff99; }
-button:nth-child(4) { background-color: #ccff99; }
-button:nth-child(5) { background-color: #99ff99; }
-button:nth-child(6) { background-color: #99ffcc; }
-button:nth-child(7) { background-color: #99ffff; }
-button:nth-child(8) { background-color: #99ccff; }
-button:nth-child(9) { background-color: #9999ff; }
-button:nth-child(10) { background-color: #cc99ff; }
-button:nth-child(11) { background-color: #ff99ff; }
-button:nth-child(12) { background-color: #ff99cc; }
-button:nth-child(13) { background-color: #ff9999; }
-button:nth-child(14) { background-color: #ff9966; }
-button:nth-child(15) { background-color: #ff9933; }
-button:nth-child(16) { background-color: #ff9900; }
-
-button:hover {
-    background-color: #e0e0e0;
+.options button:hover {
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
-button:active {
-    transform: scale(0.95);
-    background-color: #7b2727;
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, #000428, #004e92, #00ffff, #ff00ff); /* Galaksi etkisi */
+    display: none; /* Başlangıçta gizli */
+    z-index: 2; /* İçerikten üstte */
+    transition: opacity 1s ease-out; /* Opaklık geçişi */
 }
 
-/* Fade-in animasyonu */
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
+#effect {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background-color: #ff0000; /* Kırmızı neon */
+    border-radius: 50%;
+    transform: scale(0);
+    transition: transform 1s ease-out, opacity 1s ease-out;
+    display: none; /* Başlangıçta gizli */
+    z-index: 3; /* Overlay'in üstünde */
 }
 
-/* Button tıklama animasyonu */
-@keyframes buttonClick {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(0.95);
-    }
+#message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    font-size: 3rem;
+    color: #ff0000;
+    font-weight: bold;
+    opacity: 0;
+    transition: transform 1s ease-out, opacity 1s ease-out, color 2s ease-out;
+    z-index: 4; /* En üstte */
 }
