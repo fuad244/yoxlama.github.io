@@ -23,7 +23,7 @@ function checkAnswer(answer) {
         result.style.color = 'green';
 
         // Ekranı tamamen kaplayan renkli efekt
-        const neonColor = '#ff0000'; // Kırmızı neon
+        const neonColor = '#00ffff'; // Kırmızı neon
         const backgroundColor = '#004e92'; // Galaksi mavisi
 
         overlay.style.display = 'block'; // Overlay'i görünür yap
@@ -37,7 +37,7 @@ function checkAnswer(answer) {
 
         // Efekt büyüme animasyonu
         setTimeout(function() {
-            effect.style.transform = 'scale(1.5)'; // Efektin büyüme boyutu
+            effect.style.transform = 'scale(2.5)'; // Efektin büyüme boyutu
             effect.style.opacity = '0'; // Efektin kaybolması
 
             // Mesajı belirginleştir ve renk değiştirme animasyonunu başlat
@@ -58,7 +58,7 @@ function checkAnswer(answer) {
         }, 500); // Efekt animasyonu süresi
     } else {
         wrongCount++;
-        result.textContent = 'Wrong! Try again.';
+        result.textContent = 'bir cavab daha ver!';
         result.style.color = 'red';
 
         // Arka plan ve neon renkleri değiştir
@@ -77,7 +77,7 @@ function checkAnswer(answer) {
         });
 
         // Doğru butonun görünme olasılığını artır
-        const correctButton = buttons.find(btn => btn.textContent === 'Paris');
+        const correctButton = buttons.find(btn => btn.textContent === 'FUAD');
         if (correctButton) {
             correctButton.style.opacity = (0.25 + (wrongCount * 0.05)).toString();
             if (parseFloat(correctButton.style.opacity) > 1) {
@@ -88,7 +88,7 @@ function checkAnswer(answer) {
         // Yanlış cevap sayısına göre yeni doğru cevap ekle
         if (wrongCount >= 2) {
             const newButton = document.createElement('button');
-            newButton.textContent = 'Paris';
+            newButton.textContent = 'FUAD';
             newButton.onclick = function() { checkAnswer('correct'); };
             newButton.style.backgroundColor = neonColor; // Neon arka plan rengi
             newButton.style.color = 'black'; // Buton üzerindeki yazı rengi siyah
@@ -101,9 +101,9 @@ function checkAnswer(answer) {
 
         // 8 kez yanlış cevap verildiğinde mevcut yanlış buton doğru butona dönüşür
         if (wrongCount === maxWrongAnswers) {
-            const wrongButton = buttons.find(btn => btn.textContent === 'London');
+            const wrongButton = buttons.find(btn => btn.textContent === 'o');
             if (wrongButton) {
-                wrongButton.textContent = 'Paris';
+                wrongButton.textContent = 'FUAD';
                 wrongButton.onclick = function() { checkAnswer('correct'); };
                 wrongButton.style.backgroundColor = neonColor; // Neon arka plan rengi
                 wrongButton.style.color = 'black'; // Buton üzerindeki yazı rengi siyah
