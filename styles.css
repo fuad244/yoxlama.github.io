@@ -30,23 +30,36 @@ body {
     width: 300px;
     height: 200px;
     margin: 0 auto;
+    
+
 }
 
 .options button {
     padding: 10px 20px;
-    font-size: 1rem;
+    font-size: 24px;
     border: 2px solid transparent;
     border-radius: 5px;
     cursor: pointer;
-    background-color: neon; /* Neon arka plan rengi */
-    color: black; /* Buton üzerindeki yazı rengi siyah */
+    background-color: red; /* Neon arka plan rengi */
+    color:#fff; /* Buton üzerindeki yazı rengi siyah */
     transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    font-weight: bold;
+    box-shadow: 5px 5px 0px black;
+    transition: all 0.3 ease;
+
+
 }
 
 .options button:hover {
-    background-color: rgba(0, 0, 0, 0.1);
-}
+    background-color: white;
+    color: red;
+    box-shadow:5px 5px 0 red;
 
+}
+.options button:active{
+    background-color: yellow;
+    box-shadow: none;
+}
 #overlay {
     position: fixed;
     top: 0;
