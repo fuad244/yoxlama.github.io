@@ -1,5 +1,5 @@
 let wrongCount = 0;
-const maxWrongAnswers = 8;
+const maxWrongAnswers = 5;
 const neonColors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
 const backgroundColors = ['#000428', '#004e92', '#00ffff', '#ff00ff', '#00ff00', '#ff0000'];
 
